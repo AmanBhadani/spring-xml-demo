@@ -13,14 +13,11 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie1 = context.getBean("movie1", Movie.class);
-        Movie movie2 = context.getBean("movie2", Movie.class);
-        Movie movieA = context.getBean("MovieA", Movie.class);
-        Movie movieb = context.getBean("MovieB", Movie.class);
-        System.out.println(movie1.toString());
-        System.out.println(movie2.toString());
+        Movie movie = context.getBean("movie", Movie.class);
+        Movie movieA = context.getBean("movieA", Movie.class);
+        System.out.println(movie.toString());
         System.out.println(movieA.toString());
-        System.out.println(movie1==movie2);
+
 
 
     }

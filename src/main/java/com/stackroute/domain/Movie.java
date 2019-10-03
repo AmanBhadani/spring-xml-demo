@@ -6,8 +6,8 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Actor actor) {
-        this.actor = actor;
+    public Movie(Actor actor1) {
+        this.actor = actor1;
     }
 
     public Actor getActor() {
