@@ -1,17 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
-        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<?xml version = "1.0" encoding = "UTF-8"?>
 
-<beans>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="movie" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor" />
+    <!--    <bean id="actor" class="com.stackroute.domain.Actor">-->
+    <!--        <property name="name" value="Aman bhadhani"/>-->
+    <!--        <property name="age" value="22"/>-->
+    <!--        <property name="gender" value="Male"/>-->
+    <!--    </bean>-->
+
+    <bean id="actor1" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="Aman"/>
+        <constructor-arg index="1" value="Male"/>
+        <constructor-arg index="2" value="22"/>
     </bean>
 
-    <bean id="actor"
-          class="com.stackroute.domain.Actor">
-        <property name="name" value="Actor 1" />
-        <property name="gender" value="Male" />
-        <property name="age" value="24"/>
+    <bean id="movie1" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="actor1"/>
     </bean>
+
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <constructor-arg type="java.lang.String" value="Aman"/>
+        <constructor-arg type="java.lang.String" value="Male"/>
+        <constructor-arg type="int" value="22"/>
+    </bean>
+
+    <bean id="movie2" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="actor2"/>
+    </bean>
+
+    <bean id="actor" class="com.stackroute.domain.Actor" >
+        <constructor-arg name="name" value="jojo"/>
+        <constructor-arg name="gender" value="Male"/>
+        <constructor-arg name="age" value="22"/>
+    </bean>
+
+
+    <bean name="MovieA,MovieB" class="com.stackroute.domain.Movie"  scope="prototype">
+        <property name="actor" ref="actor"/>
+    </bean>
+
+
+
 </beans>
